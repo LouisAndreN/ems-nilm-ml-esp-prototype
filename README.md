@@ -4,18 +4,34 @@ The goal of this project is to create a monitoring system for home to track ener
 
 This system is deployed in a japanese residence but can also be adapted for industrial fields, in manufacture or other urban buildings.
 
-# Used material
+## Used material
 
-- SCT-013 5A/1V (for first tests on power strip) and SCT-013 30A/1V
+- SCT-013-005 (5A/1V) and SCT-013-030 (30A/1V)
 - ADS1115
-- Adafruit Jack plug TRRS
+- Adafruit 3.5mm TRRS jack breakout
 - ESP32 S3 R16N8 (or ESP32-WROOM-32E)
-- Set of resistors
-- Set of capacitors
+- 2× 10kΩ resistors (bias)
+- 1× 1kΩ resistor (series)
+- 1× 100Ω resistor (protection)
+- 1× 10µF capacitor (coupling)
+- 2× 100nF capacitors (filtering + decoupling)
 - Male plug and female plug JP type
 - AWG14 cables
 - Proster multimeter
 
-# Future features
+See `docs/hardware_schematic.pdf` for complete circuit.
 
-Some devices can be tracked but because of the relative low precision of the ADS1115, the system needs to be improved with an audio card 48kHz to get more harmonics to detect specific devices such as induction heater.
+
+The SCT-013 current sensor connects via a 3.5mm TRRS jack.
+
+
+## Future features
+
+Some devices can be tracked but because of the relative low precision of the ADS1115, the system needs to be improved with an audio card 48kHz (PCM2704 ?) to get more harmonics to detect specific devices such as induction heater.
+
+# 日本語
+
+## 概要
+
+
+
