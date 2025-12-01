@@ -4,7 +4,7 @@
 
 
 // ========= CALIBRATION SETTINGS ==========
-float knownPower_P = 1250.0f;      // power reference
+float knownPower_P = 1250.0f;      // power reference (kettle)
 float mainsVoltage_V = 100.0f;     // electrical network voltage
 // ==============================================
 
