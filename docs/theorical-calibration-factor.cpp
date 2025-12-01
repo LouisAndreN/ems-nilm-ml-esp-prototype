@@ -70,7 +70,7 @@ V_diff = V_A1 - V_A0
 V_diff = 314 mV - 28.6 mV = 285.4 mV RMS
 
 // Capaciter C_VREF in serial with R3 => high-pass filter
-// 50 Hz << fc = 339Hz => low frequency blocked
+// 50 Hz < fc = 159Hz => low frequency blocked
 Z_C_VREF = 31.8 kΩ // 50 Hz
 Z_R1 = 10 kΩ
 
