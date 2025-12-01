@@ -91,6 +91,6 @@ V_VREF_AC_real = 314 mV × 0.3 = 94 mV
 V_A1 ≈ 94 mV
 // Signal at A0 through Rpull/Rseries
 V_A0 = 94 mV × 0.091 = 8.6 mV
+  
 // Differential measure A1 - A0
-V_diff = 94 - 8.6 = 85 mV // vs 62 mV = real measure of 1250W electric kettle
-=> Ratio = 1.37
+V_diff = 94 - 8.6 = 85 mV // for 1250W electric kettle
