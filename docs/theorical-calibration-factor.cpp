@@ -10,20 +10,20 @@ Z_ADC_A0 ≈ 1-10 MΩ
 Z_ADC_A1 ≈ 1-10 MΩ
 
 // VREF to GND impedance
-Z_VREF_to_GND = R2 + Z_C_VREF = 41.8 kΩ
+Z_VREF_to_GND = Z_R2 + Z_C_VREF = 41.8 kΩ
 
 // Thevenin impedance at VREF
-Z_thevenin = R1 || Z_VREF_to_GND
+Z_thevenin = Z_R1 || Z_VREF_to_GND
 Z_thevenin = 10k || 41.8k
 Z_thevenin = (10k × 41.8k) / (10k + 41.8k)
 Z_thevenin = 418k / 51.8k ≈ 8.07 kΩ
 
 // Path A0 from VREF impedance
-Z_to_A0 = Rpull + (Rseries || Z_C2 || Z_ADC_A0)
+Z_to_A0 = Z_Rpull + (Z_Rseries || Z_C2 || Z_ADC_A0)
 
 // Z_C2 >> Rseries
 // Z_ADC_A0 >> Rseries
-=> Z_to_A0 ≈ Rpull + Rseries = 1000 + 100 = 1100 Ω
+=> Z_to_A0 ≈ Z_Rpull + Z_Rseries = 1000 + 100 = 1100 Ω
 
 // Total impedance seen from SCT
 // 1. To 3.3V through R1 : 10 kΩ
@@ -51,16 +51,16 @@ V_VREF_AC = 417 × 0.753 = 314 mV RMS
 // Divider Rpull/(Rpull+Rseries) from VREF
 
 // Impedance between VREF and Junction B
-Z_at_B = Rseries || Z_C2 || Z_ADC_A0 ≈ Rseries = 100 Ω
+Z_at_B = Z_Rseries || Z_C2 || Z_ADC_A0 ≈ Z_Rseries = 100 Ω
 
 // Divider :
-V_B / V_VREF = Z_at_B / (Rpull + Z_at_B)
+V_B / V_VREF = Z_at_B / (Z_Rpull + Z_at_B)
 V_B / V_VREF = 100 / (1000 + 100) = 0.091
 
 V_B = 314 mV × 0.091 = 28.6 mV
 
 // Impedance from B to A0
-Z_ADC_A0 >> Rseries => V_A0 ≈ V_B = 28.6 mV RMS
+Z_ADC_A0 >> Z_Rseries => V_A0 ≈ V_B = 28.6 mV RMS
 
 // Voltage at A1 (VREF)
 Z_ADC_A1 >> Z_thevenin => V_A1 ≈ V_VREF_AC = 314 mV RMS
