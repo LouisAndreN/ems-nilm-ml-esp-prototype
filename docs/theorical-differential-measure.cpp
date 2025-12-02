@@ -44,7 +44,7 @@ Z_total = Z_C1 + Z_parallel_VREF
 V_VREF_AC / V_SCT = Z_parallel_VREF / (Z_C1 + Z_parallel_VREF)
 V_VREF_AC / V_SCT = 962 / 1280 = 0.752
 
-V_SCT = 417 mV // with 12.5A on SCT-013-030 (12.5/30 = 0.417)
+V_SCT = 417 mV // electric kettle 1250W with AC 100V => 12.5A on SCT-013-030 (12.5/30 = 0.417)
 V_VREF_AC = 417 × 0.752 = 314 mV RMS
 
 // Voltage at A0 (via Rpull+Rseries)
