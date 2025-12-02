@@ -1,4 +1,4 @@
-# Non-Intrusive Load Monitoring System & Energy Monitoring
+# EMS (Energy management System) prototype with Home NILM (Non-Intrusive Load Monitoring) System
 
 This project provides a full end-to-end Non-Intrusive Load Monitoring (NILM) system designed for the Japanese electrical environment (100V, 50/60Hz).
 It integrates custom low-cost hardware, real household data, and lightweight machine learning models to estimate appliance-level energy usage in real time.
