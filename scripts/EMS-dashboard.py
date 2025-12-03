@@ -322,7 +322,7 @@ with st.sidebar:
     st.subheader("Plot")
     show_normalized = st.checkbox("Normalized harmonics", value=True)
     show_history = st.checkbox("Temporal history", value=True)
-    show_raw = st.checkbox("Plot crude signal", value=False, 
+    show_raw = st.checkbox("Plot raw signal", value=False, 
                           help="Plot before calibration")
     refresh_rate = st.slider("Refresh rate (ms)", 100, 2000, 500, 100)
     
@@ -648,4 +648,5 @@ if st.session_state.serial_connected:
     time.sleep(refresh_rate / 1000)
     st.rerun()
 else:
+
     st.info("Connect to ESP32 from sidebar to begin")
