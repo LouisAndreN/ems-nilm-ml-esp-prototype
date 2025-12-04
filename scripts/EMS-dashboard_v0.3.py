@@ -315,9 +315,17 @@ st.title("⚡ NILM Dashboard - Full FFT Analysis")
 
 # ===== DATA ACQUISITION =====
 if st.session_state.serial_connected and st.session_state.ser:
+    # Vérifier timeout avant de lire les données
+    if st.session_state.calibration_state in ['noise', 'reference']:
+        if time.time() - st.session_state.calibration_timeout > 30:
+            st.error("⏱️ Timeout! Aucune donnée reçue.")
+            st.session_state.calibration_state = 'idle'
+            st.session_state.calibration_samples = []
+            st.rerun()
+            
     try:
         lines_read = 0
-        max_lines = 10  # Increased to read more lines per cycle
+        max_lines = 50  # Increased to read more lines per cycle
         
         while st.session_state.ser.in_waiting > 0 and lines_read < max_lines:
             line = st.session_state.ser.readline().decode('utf-8', errors='ignore').strip()
@@ -340,11 +348,11 @@ if st.session_state.serial_connected and st.session_state.ser:
                             st.session_state.calibration_samples.append(fft_data)
                             
                             # Timeout check
-                            if time.time() - st.session_state.calibration_timeout > 30:
-                                st.error("⏱️ Timeout!")
-                                st.session_state.calibration_state = 'idle'
-                                st.session_state.calibration_samples = []
-                                st.rerun()
+                            #if time.time() - st.session_state.calibration_timeout > 30:
+                            #    st.error("⏱️ Timeout!")
+                            #    st.session_state.calibration_state = 'idle'
+                            #    st.session_state.calibration_samples = []
+                            #    st.rerun()
                             
                             # Check if we have enough samples
                             if len(st.session_state.calibration_samples) >= 20:
@@ -366,11 +374,11 @@ if st.session_state.serial_connected and st.session_state.ser:
                             })
                             
                             # Timeout check
-                            if time.time() - st.session_state.calibration_timeout > 30:
-                                st.error("⏱️ Timeout!")
-                                st.session_state.calibration_state = 'idle'
-                                st.session_state.calibration_samples = []
-                                st.rerun()
+                            #if time.time() - st.session_state.calibration_timeout > 30:
+                            #    st.error("⏱️ Timeout!")
+                            #    st.session_state.calibration_state = 'idle'
+                            #    st.session_state.calibration_samples = []
+                            #    st.rerun()
                             
                             # Check if we have enough samples
                             if len(st.session_state.calibration_samples) >= 20:
@@ -416,9 +424,10 @@ if st.session_state.calibration_state in ['noise', 'reference']:
     st.progress(progress, text=f"Samples: {len(st.session_state.calibration_samples)}/20 ({elapsed}s)")
     
     with st.expander("🔍 Debug Calibration", expanded=True):
-        st.write(f"**Samples collected:** {len(st.session_state.calibration_samples)}")
+        st.write(f"**Samples collected:** {len(st.session_state.calibration_samples)}/20")
         st.write(f"**Lines received:** {st.session_state.debug_lines_received}")
         st.write(f"**Valid JSON:** {st.session_state.debug_valid_json}")
+        st.write(f"**Serial buffer:** {st.session_state.ser.in_waiting if st.session_state.ser else 0} bytes")
         
         if st.session_state.calibration_samples:
             if st.session_state.calibration_state == 'noise':
@@ -647,7 +656,8 @@ else:
 #===== AUTO REFRESH =====
 if st.session_state.serial_connected:
     if st.session_state.calibration_state in ['noise', 'reference']:
-        time.sleep(0.2)
+        time.sleep(0.05) # Rafraîchissement rapide pendant calibration
+        st.rerun()
     elif st.session_state.calibration_state == 'running':
         time.sleep(0.5)
         st.rerun()
