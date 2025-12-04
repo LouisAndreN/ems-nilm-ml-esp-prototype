@@ -10,7 +10,7 @@ The goal is to provide an accessible and practical system for monitoring househo
 - Forecasting of total household consumption and prediction of device usage patterns
 - From Custom analog conditioning circuit design to ML deployment
 - Dashboard for live monitoring and historical analysis
-- Edge preprocessing (ESP32) + Central ML (Raspberry Pi 5)
+- Edge preprocessing (ESP32) + Centralization od data for ML (Raspberry Pi 5 + Hailo-8L)
 - Support for Japanese standards (seasonal patterns, 30A breaker, 100V, 50/60Hz)
 
 ## Used material
