@@ -1,4 +1,4 @@
-# Home Energy Management System prototype with NILM (Non-Intrusive Load Monitoring) Device
+# 🏡🔌 Home Energy Management System prototype with NILM (Non-Intrusive Load Monitoring) Device
 
 This project provides a full end-to-end Energy Management System, using  Non-Intrusive Load Monitoring (NILM) system designed for the Japanese electrical environment (100V, 50/60Hz).
 It integrates custom low-cost hardware, real household data, and lightweight machine learning models to estimate appliance-level energy usage in real time.
@@ -36,7 +36,7 @@ The current components allows to get until the 8th harmonics, which can be limit
 # Status : 🚧 **In progress**
 - Dashboard for visualization
 - Individual device signatures recording for classification library
-- Consideration of PCM1808 to get more harmonics for advanced devices and use of Machine Learning Model for prediction and anomaly detection
+- Consideration of PCM1808 to get more harmonics for advanced devices and Deep Learning Model evaluation for prediction and anomaly detection
 
 # How to run
 
