@@ -8,7 +8,7 @@ Z_C2 = 1/(2π × 50 × 470nF) = 6.77 kΩ
 Z_Rseries = 100 Ω
 Z_ADC_A0 ≈ 1-10 MΩ
 Z_ADC_A1 ≈ 1-10 MΩ
-Z_Rburden = 60 Ω // SCT-013 30A/1V => burden resistor typically ~60Ω
+Z_Rburden = 60 Ω // SCT-013 30A/1V => burden resistor typically ~60Ω (Current ratio 1:1800)
 
 ////////////////////////////////////////////////////////////////////////
 //////////////////// Voltage divider bridge from VREF //////////////////
